@@ -1,0 +1,274 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Stick+No+Bills:wght@200..800&display=swap');
+
+//Paleta de Colores
+$color1: #3b5b94;
+$color2: #a0b4d9;
+$color3: #1a315d;
+$color4: #80679e;
+$color5: #252525;
+
+// Fonts
+$font1: "Stick No Bills", sans-serif;
+$font2: "Playfair Display", serif;
+$font3: "Gowun Batang", serif;
+$font4: "Inria Sans", sans-serif;
+
+section {
+    background-color: $color3 !important;
+}
+
+h1 {
+    font-family: $font1;
+    color: $color3;
+}
+
+h2 {
+    font-family: $font1;
+    color: white;
+}
+
+h3 {
+    font-family: $font4;
+    color: $color4;
+}
+
+h5 {
+    font-family: $font3;
+}
+
+p {
+    font-family: $font1;
+    color: $color2;
+}
+
+a {
+    font-family: $font1;
+}
+
+.logo {
+    width: 3.2rem;
+    margin-left: 30px;
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 0px 0px 2px gray;
+}
+
+.productos a {
+    text-decoration: none;
+}
+
+.jumbo {
+    background-image: url(../img/background.jpg);
+    width: 100%;
+    height: 800px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+
+    h1 {
+        margin-top: 40px;
+        width: 50%;
+        text-shadow: 2px 2px 5px black;
+        margin-left: 0.5rem;
+    }
+
+    p {
+        width: 45%;
+        text-shadow: 2px 2px 5px black;
+        margin-left: 0.5rem;
+    }
+}
+
+.carousel-img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.social-icons {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    a {
+        display: block;
+        padding: 12px;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }
+
+    a:hover {
+        background-color: #555;
+    }
+}
+
+.publicidad {
+    background-color: $color5 !important;
+
+    .btn-instagram {
+        background-color: $color4;
+    }
+
+    a:hover {
+        background-color: #777;
+    }
+}
+
+.comentarios {
+    background-color: $color3 !important;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: 500ms;
+        opacity: 90%;
+    }
+
+    .card:hover {
+        transform: scale(1.01);
+        opacity: 100%;
+    }
+
+    .card-body {
+        flex: 1;
+    }
+
+    .card-body-color {
+        background-color: $color1;
+    }
+}
+
+.suscripcion {
+    background-color: $color3 !important;
+}
+
+.chatbox {
+    z-index: 1;
+}
+
+/* Contacto Styles */
+
+.contact-info {
+    margin-bottom: 30px;
+
+    h3 {
+        margin-bottom: 15px;
+    }
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Nosotros Styles */
+
+.our-team {
+
+    .card {
+        transition: 500ms;
+        opacity: 90%;
+    }
+
+    .card:hover {
+        transform: scale(1.01);
+        opacity: 100%;
+    }
+
+    .card-body-color {
+        background-color: $color1;
+    }
+}
+
+/* Samsung Styles */
+
+.samsung {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: 500ms;
+        opacity: 90%;
+    }
+
+    .card:hover {
+        transform: scale(1.01);
+        opacity: 100%;
+    }
+
+    .card-body {
+        flex: 1;
+    }
+
+    .card-body-color {
+        background-color: $color1;
+    }
+
+    .product-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+}
+
+.ad-section {
+    background-color: $color3;
+    padding: 10px;
+    margin-top: 20px;
+
+    img {
+        border-radius: 50%;
+    }
+
+}
+
+/* Iphone Styles */
+
+.iphone {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: 500ms;
+        opacity: 90%;
+    }
+
+    .card:hover {
+        transform: scale(1.01);
+        opacity: 100%;
+    }
+
+    .card-body {
+        flex: 1;
+    }
+
+    .card-body-color {
+        background-color: $color1;
+    }
+
+    .product-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+}
