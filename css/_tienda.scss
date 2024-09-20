@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 500ms;
+    opacity: 90%;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    opacity: 100%;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-body-color {
+    background-color: $color1;
+}
+
+.product-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.ad-section {
+    background-color: $color3;
+    padding: 10px;
+    margin-top: 20px;
+
+    img {
+        border-radius: 50%;
+    }
+
+}

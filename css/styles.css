@@ -125,7 +125,6 @@ a {
   z-index: 1;
 }
 
-/* Contacto Styles */
 .contact-info {
   margin-bottom: 30px;
 }
@@ -152,7 +151,6 @@ a {
   height: 100%;
 }
 
-/* Nosotros Styles */
 .our-team .card {
   transition: 500ms;
   opacity: 90%;
@@ -165,25 +163,28 @@ a {
   background-color: #3b5b94;
 }
 
-/* Samsung Styles */
-.samsung .card {
+.card {
   display: flex;
   flex-direction: column;
   height: 100%;
   transition: 500ms;
   opacity: 90%;
 }
-.samsung .card:hover {
+
+.card:hover {
   transform: scale(1.01);
   opacity: 100%;
 }
-.samsung .card-body {
+
+.card-body {
   flex: 1;
 }
-.samsung .card-body-color {
+
+.card-body-color {
   background-color: #3b5b94;
 }
-.samsung .product-card img {
+
+.product-card img {
   height: 200px;
   object-fit: cover;
 }
@@ -195,29 +196,6 @@ a {
 }
 .ad-section img {
   border-radius: 50%;
-}
-
-/* Iphone Styles */
-.iphone .card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: 500ms;
-  opacity: 90%;
-}
-.iphone .card:hover {
-  transform: scale(1.01);
-  opacity: 100%;
-}
-.iphone .card-body {
-  flex: 1;
-}
-.iphone .card-body-color {
-  background-color: #3b5b94;
-}
-.iphone .product-card img {
-  height: 200px;
-  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */
