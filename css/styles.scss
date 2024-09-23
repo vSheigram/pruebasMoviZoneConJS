@@ -5,28 +5,33 @@
 //Paleta de Colores
 $color1: #3b5b94;
 $color2: #a0b4d9;
-$color3: #1a315d;
 $color4: #80679e;
 $color5: #252525;
 
+// colores alternativos
+$color6: #7B548C;
+$color7: #382E59;
+$color8: #0D1326;
+$color9: #04080D;
+$color10: #C2D7F2;
+
 // Fonts
 $font1: "Stick No Bills", sans-serif;
-$font2: "Playfair Display", serif;
 $font3: "Gowun Batang", serif;
 $font4: "Inria Sans", sans-serif;
 
 section {
-    background-color: $color3 !important;
+    background-color: $color8 !important;
 }
 
 h1 {
     font-family: $font1;
-    color: $color3;
+    color: $color7;
 }
 
 h2 {
     font-family: $font1;
-    color: white;
+    color: $color10;
 }
 
 h3 {
@@ -36,6 +41,7 @@ h3 {
 
 h5 {
     font-family: $font3;
+    color: $color1 !important;
 }
 
 p {
@@ -49,10 +55,10 @@ a {
 
 .logo {
     width: 3.2rem;
-    margin-left: 30px;
+    margin-left: 2rem;
     border-radius: 50%;
-    border: 1px solid white;
-    box-shadow: 0px 0px 2px gray;
+    border: 1px solid $color10;
+    box-shadow: 0px 0px 2px $color9;
 }
 
 .productos a {
@@ -70,14 +76,36 @@ a {
     h1 {
         margin-top: 40px;
         width: 50%;
-        text-shadow: 2px 2px 5px black;
+        text-shadow: 2px 2px 5px $color5;
         margin-left: 0.5rem;
     }
 
     p {
         width: 45%;
-        text-shadow: 2px 2px 5px black;
+        text-shadow: 2px 2px 5px $color5;
         margin-left: 0.5rem;
+    }
+}
+
+.publicidad {
+
+    .aparecer {
+        animation-duration: 2s;
+        animation-name: aparecer;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: scale(1.0);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1.2);
+        }
     }
 }
 
@@ -95,30 +123,30 @@ a {
     a {
         display: block;
         padding: 12px;
-        background-color: #333;
-        color: white;
+        background-color: $color8;
+        color: $color10;
         text-align: center;
     }
 
     a:hover {
-        background-color: #555;
+        background-color: $color7;
     }
 }
 
 .publicidad {
-    background-color: $color5 !important;
+    background-color: $color9 !important;
 
     .btn-instagram {
-        background-color: $color4;
+        background-color: $color7;
     }
 
     a:hover {
-        background-color: #777;
+        background-color: $color6;
     }
 }
 
 .comentarios {
-    background-color: $color3 !important;
+    background-color: $color8 !important;
 
     .card {
         display: flex;
@@ -138,12 +166,12 @@ a {
     }
 
     .card-body-color {
-        background-color: $color1;
+        background-color: $color9;
     }
 }
 
 .suscripcion {
-    background-color: $color3 !important;
+    background-color: $color8 !important;
 }
 
 .chatbox {

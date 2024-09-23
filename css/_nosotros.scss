@@ -1,3 +1,7 @@
+h1 {
+    text-shadow: 2px 2px 5px $color5;
+}
+
 .our-team {
 
     .card {
@@ -11,6 +15,6 @@
     }
 
     .card-body-color {
-        background-color: $color1;
+        background-color: $color9;
     }
 }
