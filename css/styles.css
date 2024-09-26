@@ -181,6 +181,9 @@ h1 {
   transform: scale(1.01);
   opacity: 100%;
 }
+.our-team .card-body h3 {
+  color: #3b5b94;
+}
 .our-team .card-body-color {
   background-color: #04080D;
 }
@@ -191,6 +194,11 @@ h1 {
   height: 100%;
   transition: 500ms;
   opacity: 90%;
+}
+.card h2 {
+  font-family: "Gowun Batang", serif;
+  color: #3b5b94;
+  font-size: large;
 }
 
 .card:hover {

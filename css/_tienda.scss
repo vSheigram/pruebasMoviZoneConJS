@@ -4,6 +4,12 @@
     height: 100%;
     transition: 500ms;
     opacity: 90%;
+
+    h2 {
+        font-family: $font3;
+        color: $color1;
+        font-size: large;
+    }
 }
 
 .card:hover {
