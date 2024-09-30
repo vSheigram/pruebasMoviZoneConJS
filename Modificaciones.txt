@@ -9,3 +9,6 @@ Optimización del sitio.
 -Se agregaron etiquetas para accesibilidad.
 -Se renderizó el background para optimizar el tiempo de renderizado mobile.
 -Se agregaron animaciones AOS en el index.html y en nososotros.html
+-Se agregaron animaciones AOS en la página de iphone, samsung y smartwatches.
+-Se agregó una mediaquery para arreglar el párrafo en la versión mobile.
+-Se ocultaron los botones de redes para la versión mobile.
