@@ -6,3 +6,6 @@ Optimización del sitio.
 -Se utilizó loading lazy para mejorar el rendimiento de carga.
 -Se agregó SASS al proyecto con la subdivisión de archivos.
 -Se actualizó el diseño general de la web incorporando una paleta de colores nueva y fuentes de google font, utlizando variables para facilitar su utilización.
+-Se agregaron etiquetas para accesibilidad.
+-Se renderizó el background para optimizar el tiempo de renderizado mobile.
+-Se agregaron animaciones AOS en el index.html y en nososotros.html
