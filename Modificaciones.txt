@@ -12,3 +12,4 @@ Optimización del sitio.
 -Se agregaron animaciones AOS en la página de iphone, samsung y smartwatches.
 -Se agregó una mediaquery para arreglar el párrafo en la versión mobile.
 -Se ocultaron los botones de redes para la versión mobile.
+-Se agregó la carpeta SCSS para separar los archivos de CSS de los de SASS por recomandación de Fer.
