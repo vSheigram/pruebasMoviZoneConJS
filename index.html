@@ -54,7 +54,7 @@
                             <a class="nav-link" href="#" aria-label="Buscar"><i class="bi bi-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" aria-label="Ver carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                            <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito" aria-label="Ver carrito de compras"><i class="bi bi-cart-fill"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" aria-label="Acceder a la cuenta de usuario"><i class="bi bi-person-fill"></i></a>
@@ -63,6 +63,22 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Inicio Offcanvas Carrito -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCarritoLabel">Carrito de Compras</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul id="carritoItems" class="list-group">
+                    <!-- Productos añadidos aparecerán aquí dinámicamente -->
+                </ul>
+                <p id="carritoTotal" class="mt-3">Total: $0.00</p>
+                <button class="btn btn-primary w-100 mt-3">Finalizar Compra</button>
+            </div>
+        </div>
+
 <!-- Fin Barra de Navegación -->
     </header>
 
@@ -314,5 +330,7 @@
     <script>
         AOS.init();
     </script>
+    <script src="./js/productos.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
