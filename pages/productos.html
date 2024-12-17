@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora nuestra amplia selección de celulares Samsung en MoviZone. Encuentra los últimos modelos a los mejores precios y disfruta de la calidad y tecnología de Samsung. ¡Compra ahora!">
+    <meta name="keywords" content="celulares Samsung, comprar Samsung, Galaxy S21 FE, Galaxy S22, Galaxy Z Flip 5, Galaxy Fold 5, Galaxy S24 Ultra, Galaxy S23, Galaxy A54, MoviZone">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../img/logo-gris.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Celulares Samsung - MoviZone</title>
+</head>
+<body>
+    <header>
+<!-- Inicio Barra de Navegación -->
+        <nav class="navbar navbar-expand-sm bg-black navbar-dark fixed-top" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img class="logo" src="../img/logo-gris.jpg" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+<!-- Links -->
+            <div class="container-fluid">
+                <div class="justify-content-end collapse navbar-collapse" id="collapsibleNavbar" aria-label="Menú de navegación">
+                    <ul class="navbar-nav text-align-end">
+<!-- Botón Inicio -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html" aria-label="Ir al Inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/productos.html" aria-label="Ir a la página de Productos">Productos</a>
+                        </li>
+<!-- Otros enlaces del menú -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/nosotros.html" aria-label="Ir a la página de Nosotros">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../pages/contacto.html" aria-label="Ir a la página de Contacto">Contacto</a>
+                        </li>
+<!-- Iconos de búsqueda, carrito y usuario -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" aria-label="Buscar"><i class="bi bi-search"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito" aria-label="Ver carrito de compras"><i class="bi bi-cart-fill"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" aria-label="Acceder a la cuenta de usuario"><i class="bi bi-person-fill"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Inicio Offcanvas Carrito -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCarritoLabel">Carrito de Compras</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul id="carritoItems" class="list-group">
+                    <!-- Productos añadidos aparecerán aquí dinámicamente -->
+                </ul>
+                <p id="carritoTotal" class="mt-3">Total: $0.00</p>
+                <button class="btn btn-primary w-100 mt-3">Finalizar Compra</button>
+            </div>
+        </div>
+
+<!-- Fin Barra de Navegación -->
+    </header>
+
+    <main>
+        <section id="products" class="productos container-fluid mt-5">
+            <br><br>
+            <div class="container samsung">
+                <h1>Productos</h1>
+                    <!-- Productos Grid -->
+                <div  id="contenedor-productos" class="row g-4">
+                    <article class="product-item col-md-4">
+                        <!-- <div class="card product-card border border-secondary">
+                            <img src="../img/s21fe.webp" class="product-image card-img-top" alt="Samsung Galaxy S21 FE">
+                            <div class="card-body card-body-color">
+                                <h2 class="product-title card-title">Samsung Galaxy S21 FE</h2>
+                                <p class="product-price card-text">$905.999</p>
+                                <a href="#" id="add-s21" class="btn btn-danger d-flexbox btn-add-to-cart">Comprar</a>
+                                <a href="#" class="btn btn-success btn-details d-flexbox">>Detalle</a>
+                            </div>
+                        </div> -->
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black text-white py-3">
+        <div class="container text-center">
+            <p class="mb-0">© 2024 MoviZone. Todos los derechos reservados.</p>
+            <p class="mb-0">
+                <a href="./privacidad.html" class="text-white">Política de Privacidad</a> | 
+                <a href="./terminos.html" class="text-white">Términos y Condiciones</a>
+            </p>
+            <p class="mb-0">Desarrollado por <a href="https://www.linkedin.com/in/alejandro-espasandin-rubio/" target="_blank" class="text-white">Alejandro Espasandín</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../main.js"></script>    
+</body>
+</html>

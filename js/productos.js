@@ -1,46 +1,303 @@
-class Producto {
-    constructor(marca, modelo, imagen, precio) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.imagen = imagen;
-        this.precio = precio;
-    }
+const productos = [
+    // Samsung
+    {
+        id: "s21fe",
+        nombre: "Samsung Galaxy S21 FE",
+        imagen: "../img/s21fe.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(905999)
+    },
+    {
+        id: "s22",
+        nombre: "Samsung Galaxy S22",
+        imagen: "../img/s22.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(1355999)
+    },
+    {
+        id: "flip5",
+        nombre: "Samsung Z Flip 5",
+        imagen: "../img/flip5.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(1289999)
+    },
+    {
+        id: "fold5",
+        nombre: "Samsung Galaxy Fold 5",
+        imagen: "../img/fold5.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(2219999)
+    },
+    {
+        id: "s24ultra",
+        nombre: "Samsung Galaxy S24 Ultra",
+        imagen: "../img/s24ultra.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(2599999)
+    },
+    {
+        id: "s24",
+        nombre: "Samsung Galaxy S24",
+        imagen: "../img/s24.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(1749999)
+    },
+    {
+        id: "s23",
+        nombre: "Samsung Galaxy S23",
+        imagen: "../img/s23.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(109999)
+    },
+    {
+        id: "s23+",
+        nombre: "Samsung Galaxy S23+",
+        imagen: "../img/s23+.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(2199999)
+    },
+    {
+        id: "a54",
+        nombre: "Samsung Galaxy A54",
+        imagen: "../img/a54.webp",
+        categoria: {
+            nombreCategoria: "Samsung",
+            idCategoria: "samsung",
+        },
+        precio: Number(799999)
+    },
+    // Iphone
+    {
+        id: "iphone16Pro",
+        nombre: "iPhone 16 Pro",
+        imagen: "../img/iphone16Pro.webp",
+        categoria: {
+            nombreCategoria: "iPhone",
+            idCategoria: "iphone",
+        },
+        precio: Number(6699900)
+    },
+    {
+        id: "iphone15",
+        nombre: "iPhone 15",
+        imagen: "../img/iphone15.webp",
+        categoria: {
+            nombreCategoria: "iPhone",
+            idCategoria: "iphone",
+        },
+        precio: Number(2899900)
+    },
+    {
+        id: "iphone16",
+        nombre: "iPhone 16",
+        imagen: "../img/iphone16.webp",
+        categoria: {
+            nombreCategoria: "iPhone",
+            idCategoria: "iphone",
+        },
+        precio: Number(5599900)
+    },
+    {
+        id: "iphone14",
+        nombre: "iPhone 14",
+        imagen: "../img/iphone14.webp",
+        categoria: {
+            nombreCategoria: "iPhone",
+            idCategoria: "iphone",
+        },
+        precio: Number(2399900)
+    },
+    {
+        id: "iphone15pro",
+        nombre: "iPhone 15 Pro",
+        imagen: "../img/iphone15pro.webp",
+        categoria: {
+            nombreCategoria: "iPhone",
+            idCategoria: "iphone",
+        },
+        precio: Number(3419900)
+    },
+    // Wearables
+    {
+        id: "applewatchSE",
+        nombre: "Apple Watch SE",
+        imagen: "../img/applewatchSE.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(589999)
+    },
+    {
+        id: "galaxywatch6",
+        nombre: "Galaxy Watch 6",
+        imagen: "../img/galaxywatch6.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(499900)
+    },
+    {
+        id: "applewatchseries10",
+        nombre: "Apple Watch Series 10",
+        imagen: "../img/applewatchseries10.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(1299900)
+    },
+    {
+        id: "galaxywatch5pro",
+        nombre: "Galaxy Watch 5 Pro",
+        imagen: "../img/galaxywatch5pro.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(699999)
+    },
+    {
+        id: "applewatchultra2",
+        nombre: "Apple Watch Ultra 2",
+        imagen: "../img/applewatchultra2.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(2119900)
+    },
+    {
+        id: "galaxyfit3",
+        nombre: "Galaxy Fit 3",
+        imagen: "../img/galaxyfit3.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(119999)
+    },
+    {
+        id: "galaxywatch6classic",
+        nombre: "Galaxy Watch 6 Classic",
+        imagen: "../img/galaxywatch6classic.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(719999)
+    },
+    {
+        id: "buds2",
+        nombre: "Galaxy Buds 2",
+        imagen: "../img/buds2.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(244999)
+    },
+    {
+        id: "buds2",
+        nombre: "Galaxy Buds 2",
+        imagen: "../img/buds2.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(244999)
+    },
+    {
+        id: "airpods4",
+        nombre: "AirPods 4",
+        imagen: "../img/airpods4.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(319999)
+    },
+    {
+        id: "budsFE",
+        nombre: "Galaxy Buds FE",
+        imagen: "../img/budsFE.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(219999)
+    },
+    {
+        id: "airpodspro2",
+        nombre: "AirPods Pro 2",
+        imagen: "../img/airpodspro2.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(569999)
+    },
+    {
+        id: "buds2pro",
+        nombre: "Galaxy Buds 2 Pro",
+        imagen: "../img/buds2pro.webp",
+        categoria: {
+            nombreCategoria: "Wearable",
+            idCategoria: "wearable",
+        },
+        precio: Number(299999)
+    },
+];
 
-    aplicarDescuento(porcentaje) {
-        return this.precio - this.precio * (porcentaje / 100);
-    }
 
-    toString() {
-        return `${this.marca} ${this.modelo} - $${this.precio.toLocaleString()}`;
-    }
+// Capturas DOM
+const contenedorProductos = document.querySelector("#contenedor-productos");
+
+
+// Funciones
+function cargarProductos() {
+    productos.forEach(producto => {
+
+        const div = document.createElement("div");
+        div.classList.add("product-item", "col-md4", "mb-4");
+        div.innerHTML = `
+            <div class="card product-card border border-secondary">
+                <img src="${producto.imagen}" class="product-image card-img-top" alt="${producto.nombre}">
+                <div class="card-body card-body-color">
+                    <h2 class="product-title card-title">${producto.nombre}</h2>
+                    <p class="product-price card-text">$${producto.precio}</p>
+                    <button id="${producto.id}" class="btn btn-danger d-flexbox btn-add-to-cart">Comprar</button>
+                </div>
+            </div>
+        `;
+
+        contenedorProductos.append(div);
+    })
 }
 
-const arrayProductos = [];
-
-arrayProductos.push(
-    new Producto("Apple", "iPhone 16 Pro", "../img/iphone16Pro.webp", 6699900.00),
-    new Producto("Apple", "iPhone 15", "../img/iphone15.webp", 2899900.00),
-    new Producto("Apple", "iPhone 16", "../img/iphone16.webp", 5599900.00),
-    new Producto("Apple", "iPhone 14", "../img/iphone14.webp", 2399900.00),
-    new Producto("Samsung", "Galaxy S21 FE", "../img/s21fe.webp", 905999.00),
-    new Producto("Samsung", "Galaxy S22", "../img/s22.webp", 1355999.00),
-    new Producto("Samsung", "Z Flip 5", "../img/filp5.webp", 1289999.00),
-    new Producto("Samsung", "Z Fold 5", "../img/fold5.webp", 2219999.00),
-    new Producto("Samsung", "Galaxy S24 Ultra", "../img/s24ultra.webp", 2599999.00),
-    new Producto("Samsung", "Galaxy S24", "../img/s24.webp", 1749999.00),
-    new Producto("Samsung", "Galaxy S23", "../img/s23.webp", 109999.00),
-    new Producto("Samsung", "Galaxy S23+", "../img/s23+.webp", 2199999.00),
-    new Producto("Samsung", "Galaxy A54", "../img/a54.webp", 799999.00),
-    new Producto("Apple", "Watch SE", "../img/applewatchSE.webp", 589999.00),
-    new Producto("Samsung", "Galaxy Watch 6", "../img/galaxywatch6.webp", 499900.00),
-    new Producto("Apple", "Watch Series 10", "../img/applewatchseries10.webp", 1299900.00),
-    new Producto("Samsung", "Watch 5 Pro", "../img/galaxywatch5pro.webp", 699999.00),
-    new Producto("Apple", "Watch Ultra 2", "../img/applewatchultra2.webp", 2119900.00),
-    new Producto("Samsung", "Galaxy Fit3", "../img/galaxyfit3.webp", 119999.00),
-    new Producto("Samsung", "Galaxy Watch 6 Classic", "../img/galaxywatch6classic.webp", 719999.00),
-    new Producto("Samsung", "Galaxy Buds2", "../img/buds2.webp", 244999.00),
-    new Producto("Apple", "AirPods 4", "../img/airpods4.webp", 319999.00),
-    new Producto("Samsung", "Galaxy Buds FE", "../img/budsFE.webp", 219999.00),
-    new Producto("Apple", "AirPods Pro 2", "../img/airpodspro2.webp", 569999.00),
-    new Producto("Samsung", "Galaxy Buds2 Pro", "../img/buds2pro.webp", 299999.00),
-);
+cargarProductos()

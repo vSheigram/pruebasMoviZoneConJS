@@ -31,16 +31,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./index.html" aria-label="Ir al Inicio">Inicio</a>
                         </li>
-<!-- Productos Dropdown -->
-                        <li class="nav-item dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Abrir menú de productos">
-                                Productos
-                            </button>
-                            <ul class="productos dropdown-menu" aria-labelledby="productos">
-                                <li><a href="./pages/iphone.html" class="dropdown-item" aria-label="Ir a la página de iPhone">iPhone</a></li>
-                                <li><a href="./pages/samsung.html" class="dropdown-item" aria-label="Ir a la página de Samsung">Samsung</a></li>
-                                <li><a href="./pages/smartwatches.html" class="dropdown-item" aria-label="Ir a la página de Smartwatches">Smartwatches</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/productos.html" aria-label="Ir a la página de Productos">Productos</a>
                         </li>
 <!-- Otros enlaces del menú -->
                         <li class="nav-item">
@@ -92,7 +84,7 @@
         </section>
 <!-- Publicidad -->
         <section class="publicidad p-5 bg-primary text-white text-center">
-            <div class="container" data-aos="flip-left" data-aos-duration="2000">
+            <div class="container">
                 <h2 class="aparecer">¡Conoce Amamos Jugar!</h2>
                 <p>Juegos de mesa y cartas para toda la familia, diseñados para disfrutar del tiempo juntos y alejarse de las pantallas.</p>
                 <a href="https://www.instagram.com/amamosjugar" target="_blank" class="btn btn-light btn-instagram text-light">Seguinos en <i class="bi bi-instagram"> Instagram</i></a>
@@ -101,7 +93,7 @@
         
         <section>
 <!-- Carousel -->
-            <div id="carrousel" class="container pt-5 p-1 carousel slide w-75 mx-auto" data-bs-ride="carousel" data-bs-interval="5000" data-aos="zoom-in" data-aos-duration="2000" aria-label="Galería de productos">
+            <div id="carrousel" class="container pt-5 p-1 carousel slide w-75 mx-auto" data-bs-ride="carousel" data-bs-interval="5000" aria-label="Galería de productos">
 <!-- Indicators/dots -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carrousel" data-bs-slide-to="0" class="active" aria-label="Ir a la diapositiva 1" aria-current="true"></button>
@@ -181,7 +173,7 @@
                 <h2 class="text-center mb-5 text-white">Lo que dicen nuestros clientes</h2>
                 <div class="row g-4">
 <!-- Card 1 -->
-                    <div class="col-md-4" data-aos="flip-left" data-aos-duration="2000">
+                    <div class="col-md-4">
                         <div class="card shadow-sm  border border-black rounded">
                             <img src="./img/card_random1.png" loading="lazy" class="card-img-top" alt="Juan Pérez">
                             <div class="card-body card-body-color">
@@ -191,7 +183,7 @@
                         </div>
                     </div>
 <!-- Card 2 -->
-                    <div class="col-md-4" data-aos="flip-left" data-aos-duration="2000">
+                    <div class="col-md-4">
                         <div class="card shadow-sm border border-black rounded">
                             <img src="./img/card_random3.png" loading="lazy" class="card-img-top" alt="María García">
                             <div class="card-body card-body-color">
@@ -201,7 +193,7 @@
                         </div>
                     </div>
 <!-- Card 3 -->
-                    <div class="col-md-4" data-aos="flip-left" data-aos-duration="2000">
+                    <div class="col-md-4">
                         <div class="card shadow-sm  border border-black rounded">
                             <img src="./img/card_random2.png" loading="lazy" class="card-img-top" alt="Carlos Díaz">
                             <div class="card-body card-body-color">
@@ -324,12 +316,8 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        AOS.init();
-    </script>
     <script src="./js/productos.js"></script>
     <script src="./js/carrito.js"></script>
     <script src="main.js"></script>
