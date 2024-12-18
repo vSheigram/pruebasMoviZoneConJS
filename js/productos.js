@@ -277,27 +277,132 @@ const productos = [
 
 // Capturas DOM
 const contenedorProductos = document.querySelector("#contenedor-productos");
+const productosEnCarrito = [];
+const offcanvasCarrito = document.querySelector("#offcanvasCarrito");
+const bootstrapOffcanvas = new bootstrap.Offcanvas(offcanvasCarrito);
 
-
-// Funciones
+// Función para cargar productos al HTML
 function cargarProductos() {
     productos.forEach(producto => {
 
-        const div = document.createElement("div");
-        div.classList.add("product-item", "col-md4", "mb-4");
-        div.innerHTML = `
+        const article = document.createElement("article");
+        article.classList.add("product-item", "col-md-4", "mb-4");
+
+        article.innerHTML = `
             <div class="card product-card border border-secondary">
                 <img src="${producto.imagen}" class="product-image card-img-top" alt="${producto.nombre}">
                 <div class="card-body card-body-color">
                     <h2 class="product-title card-title">${producto.nombre}</h2>
-                    <p class="product-price card-text">$${producto.precio}</p>
-                    <button id="${producto.id}" class="btn btn-danger d-flexbox btn-add-to-cart">Comprar</button>
+                    <p class="product-price card-text">$${producto.precio.toLocaleString("es-AR")}</p>
+                    <button id="${producto.id}" class="boton-comprar btn btn-danger d-flexbox">Comprar</button>
                 </div>
             </div>
         `;
 
-        contenedorProductos.append(div);
+        contenedorProductos.append(article);
     })
 }
 
-cargarProductos()
+// Evento para botones "Comprar"
+contenedorProductos.addEventListener("click", (e) => {
+    if (e.target.classList.contains("boton-comprar")) {
+        agregarAlCarrito(e);
+    }
+});
+
+// Función para agregar productos al carrito
+function agregarAlCarrito(e) {
+    const idBoton = e.target.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+        productosEnCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosEnCarrito.push(productoAgregado);
+    }
+
+    actualizarCarrito();
+
+    // Mostrar el offcanvas después de agregar el producto
+    bootstrapOffcanvas.show();
+}
+
+// Función para actualizar la vista del carrito
+function actualizarCarrito() {
+    const carritoItems = document.querySelector("#carritoItems");
+    const carritoTotal = document.querySelector("#carritoTotal");
+
+    // Limpiar contenido actual del carrito
+    carritoItems.innerHTML = "";
+
+    // Generar nuevo contenido
+    productosEnCarrito.forEach(producto => {
+        const li = document.createElement("li");
+        li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+        li.innerHTML = `
+            <div>
+                <h6>${producto.nombre}</h6>
+                <p>Cantidad: 
+                    <button class="btn btn-sm btn-light btn-decrementar" data-id="${producto.id}">-</button>
+                    ${producto.cantidad}
+                    <button class="btn btn-sm btn-light btn-incrementar" data-id="${producto.id}">+</button>
+                </p>
+            </div>
+            <div>
+                <span>$${(producto.precio * producto.cantidad).toLocaleString()}</span>
+                <button class="btn btn-sm btn-danger btn-eliminar" data-id="${producto.id}">X</button>
+            </div>
+        `;
+
+        carritoItems.append(li);
+    });
+
+    // Calcular total
+    const total = productosEnCarrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
+    carritoTotal.textContent = `Total: $${total.toLocaleString()}`;
+
+    // Agregar eventos a los nuevos botones
+    agregarEventosCarrito();
+}
+
+function agregarEventosCarrito() {
+    const botonesIncrementar = document.querySelectorAll(".btn-incrementar");
+    const botonesDecrementar = document.querySelectorAll(".btn-decrementar");
+    const botonesEliminar = document.querySelectorAll(".btn-eliminar");
+
+    botonesIncrementar.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            const id = e.currentTarget.dataset.id;
+            const producto = productosEnCarrito.find(p => p.id === id);
+            producto.cantidad++;
+            actualizarCarrito();
+        });
+    });
+
+    botonesDecrementar.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            const id = e.currentTarget.dataset.id;
+            const producto = productosEnCarrito.find(p => p.id === id);
+            if (producto.cantidad > 1) {
+                producto.cantidad--;
+            } else {
+                // Si la cantidad llega a 0, eliminamos el producto
+                productosEnCarrito.splice(productosEnCarrito.indexOf(producto), 1);
+            }
+            actualizarCarrito();
+        });
+    });
+
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            const id = e.currentTarget.dataset.id;
+            const index = productosEnCarrito.findIndex(p => p.id === id);
+            productosEnCarrito.splice(index, 1);
+            actualizarCarrito();
+        });
+    });
+}
+
+cargarProductos();
