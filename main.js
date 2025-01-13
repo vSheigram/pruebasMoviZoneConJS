@@ -2,11 +2,6 @@
 const formNewsletter = document.querySelector("#form-newsletter");
 const emailInput = document.querySelector("#email-newsletter");
 const feedback = document.querySelector("#newsletter-feedback");
-const form = document.querySelector("#contact-form");
-const nameInputContactForm = document.querySelector("#name");
-const emailInputContactForm = document.querySelector("#email");
-const messageInput = document.querySelector("#message");
-const feedbackContactForm = document.querySelector("#form-feedback");
 
 // Función para manejar la suscripción
 function manejarSuscripcion(e) {
@@ -71,49 +66,3 @@ document.addEventListener("DOMContentLoaded", () => {
         actualizarCarrito(); // Llamamos a actualizarCarrito() si existe
     }
 });
-
-// Validar formato del email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
-
-// Manejar el envío del formulario
-if (form) {
-    form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-
-        const name = nameInputContactForm.value.trim();
-        const email = emailInputContactForm.value.trim();
-        const message = messageInput.value.trim();
-
-        // Validaciones básicas
-        if (!name || !email || !message) {
-            feedbackContactForm.textContent = "Por favor, completa todos los campos.";
-            feedbackContactForm.style.color = "red";
-            return;
-        }
-
-        if (!validarEmail(email)) {
-            feedbackContactForm.textContent = "Por favor, ingresa un correo válido.";
-            feedbackContactForm.style.color = "red";
-            return;
-        }
-
-        // Mostrar mensaje de éxito inmediatamente
-        feedbackContactForm.textContent = "¡Gracias por contactarnos! Hemos recibido tu mensaje.";
-        feedbackContactForm.style.color = "green";
-
-        // Limpiar el formulario después de un pequeño retraso (opcional)
-        setTimeout(() => {
-            form.reset();
-            feedbackContactForm.textContent = ""; // Limpiar el mensaje después de mostrarlo
-        }, 3000);
-
-        // Guardar en LocalStorage (opcional)
-        const contacto = { name, email, message };
-        localStorage.setItem("ultimoContacto", JSON.stringify(contacto));
-    });
-} else {
-    console.error("El formulario no se encontró en el DOM.");
-}
