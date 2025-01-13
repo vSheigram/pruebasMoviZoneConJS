@@ -1,3 +1,4 @@
+// Array Productos
 const productos = [
     // Samsung
     {
