@@ -278,7 +278,7 @@ const productos = [
 
 // Capturas DOM
 const contenedorProductos = document.querySelector("#contenedor-productos");
-const productosEnCarrito = [];
+let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const offcanvasCarrito = document.querySelector("#offcanvasCarrito");
 const bootstrapOffcanvas = new bootstrap.Offcanvas(offcanvasCarrito);
 
@@ -316,14 +316,20 @@ function agregarAlCarrito(e) {
     const idBoton = e.target.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
-    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+    // Ver si el producto ya está en el carrito
+    const yaExiste = productosEnCarrito.some(producto => producto.id === idBoton);
+
+    if (yaExiste) {
+        // Si existe, aumentamos la cantidad
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
     } else {
+        // Si no existe, agregamos con cantidad = 1
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
 
+    // Actualizamos la vista y guardamos en localStorage
     actualizarCarrito();
 
     // Mostrar el offcanvas después de agregar el producto
@@ -366,6 +372,8 @@ function actualizarCarrito() {
 
     // Agregar eventos a los nuevos botones
     agregarEventosCarrito();
+    // Guardar el estado actualizado del carrito en localStorage
+    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
 }
 
 function agregarEventosCarrito() {
@@ -407,3 +415,5 @@ function agregarEventosCarrito() {
 }
 
 cargarProductos();
+// Si ya había productos guardados en el carrito (localStorage), los mostramos:
+actualizarCarrito();
