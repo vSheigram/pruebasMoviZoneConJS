@@ -276,16 +276,12 @@ const productos = [
 ];
 
 
-// Capturas DOM
+// DOM Capturas
 const contenedorProductos = document.querySelector("#contenedor-productos");
-let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
-const offcanvasCarrito = document.querySelector("#offcanvasCarrito");
-const bootstrapOffcanvas = new bootstrap.Offcanvas(offcanvasCarrito);
 
-// Función para cargar productos al HTML
+// Función para cargar los productos en el HTML
 function cargarProductos() {
     productos.forEach(producto => {
-
         const article = document.createElement("article");
         article.classList.add("product-item", "col-md-4", "mb-4");
 
@@ -295,125 +291,21 @@ function cargarProductos() {
                 <div class="card-body card-body-color">
                     <h2 class="product-title card-title">${producto.nombre}</h2>
                     <p class="product-price card-text">$${producto.precio.toLocaleString("es-AR")}</p>
-                    <button id="${producto.id}" class="boton-comprar btn btn-danger d-flexbox">Comprar</button>
+                    <button id="${producto.id}" class="boton-comprar btn btn-danger">Comprar</button>
                 </div>
             </div>
         `;
-
         contenedorProductos.append(article);
-    })
+    });
 }
 
-// Evento para botones "Comprar"
+// Evento delegado para capturar clics en los botones "Comprar"
 contenedorProductos.addEventListener("click", (e) => {
     if (e.target.classList.contains("boton-comprar")) {
-        agregarAlCarrito(e);
+        const idProducto = e.target.id;
+        agregarProductoAlCarrito(idProducto);
     }
 });
 
-// Función para agregar productos al carrito
-function agregarAlCarrito(e) {
-    const idBoton = e.target.id;
-    const productoAgregado = productos.find(producto => producto.id === idBoton);
-
-    // Ver si el producto ya está en el carrito
-    const yaExiste = productosEnCarrito.some(producto => producto.id === idBoton);
-
-    if (yaExiste) {
-        // Si existe, aumentamos la cantidad
-        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
-        productosEnCarrito[index].cantidad++;
-    } else {
-        // Si no existe, agregamos con cantidad = 1
-        productoAgregado.cantidad = 1;
-        productosEnCarrito.push(productoAgregado);
-    }
-
-    // Actualizamos la vista y guardamos en localStorage
-    actualizarCarrito();
-
-    // Mostrar el offcanvas después de agregar el producto
-    bootstrapOffcanvas.show();
-}
-
-// Función para actualizar la vista del carrito
-function actualizarCarrito() {
-    const carritoItems = document.querySelector("#carritoItems");
-    const carritoTotal = document.querySelector("#carritoTotal");
-
-    // Limpiar contenido actual del carrito
-    carritoItems.innerHTML = "";
-
-    // Generar nuevo contenido
-    productosEnCarrito.forEach(producto => {
-        const li = document.createElement("li");
-        li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
-        li.innerHTML = `
-            <div>
-                <h6>${producto.nombre}</h6>
-                <p>Cantidad: 
-                    <button class="btn btn-sm btn-light btn-decrementar" data-id="${producto.id}">-</button>
-                    ${producto.cantidad}
-                    <button class="btn btn-sm btn-light btn-incrementar" data-id="${producto.id}">+</button>
-                </p>
-            </div>
-            <div>
-                <span>$${(producto.precio * producto.cantidad).toLocaleString()}</span>
-                <button class="btn btn-sm btn-danger btn-eliminar" data-id="${producto.id}">X</button>
-            </div>
-        `;
-
-        carritoItems.append(li);
-    });
-
-    // Calcular total
-    const total = productosEnCarrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
-    carritoTotal.textContent = `Total: $${total.toLocaleString()}`;
-
-    // Agregar eventos a los nuevos botones
-    agregarEventosCarrito();
-    // Guardar el estado actualizado del carrito en localStorage
-    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
-}
-
-function agregarEventosCarrito() {
-    const botonesIncrementar = document.querySelectorAll(".btn-incrementar");
-    const botonesDecrementar = document.querySelectorAll(".btn-decrementar");
-    const botonesEliminar = document.querySelectorAll(".btn-eliminar");
-
-    botonesIncrementar.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            const id = e.currentTarget.dataset.id;
-            const producto = productosEnCarrito.find(p => p.id === id);
-            producto.cantidad++;
-            actualizarCarrito();
-        });
-    });
-
-    botonesDecrementar.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            const id = e.currentTarget.dataset.id;
-            const producto = productosEnCarrito.find(p => p.id === id);
-            if (producto.cantidad > 1) {
-                producto.cantidad--;
-            } else {
-                // Si la cantidad llega a 0, eliminamos el producto
-                productosEnCarrito.splice(productosEnCarrito.indexOf(producto), 1);
-            }
-            actualizarCarrito();
-        });
-    });
-
-    botonesEliminar.forEach(boton => {
-        boton.addEventListener("click", (e) => {
-            const id = e.currentTarget.dataset.id;
-            const index = productosEnCarrito.findIndex(p => p.id === id);
-            productosEnCarrito.splice(index, 1);
-            actualizarCarrito();
-        });
-    });
-}
-
+// Cargar los productos al iniciar la página
 cargarProductos();
-// Si ya había productos guardados en el carrito (localStorage), los mostramos:
-actualizarCarrito();
