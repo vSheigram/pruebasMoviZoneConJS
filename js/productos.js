@@ -275,7 +275,6 @@ const productos = [
     },
 ];
 
-
 // DOM Capturas
 const contenedorProductos = document.querySelector("#contenedor-productos");
 

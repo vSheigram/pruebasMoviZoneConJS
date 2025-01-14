@@ -1,3 +1,6 @@
+// Variable global para el carrito
+let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 // Función para agregar un producto al carrito
 function agregarProductoAlCarrito(idProducto) {
     const producto = productos.find(p => p.id === idProducto);
@@ -13,7 +16,7 @@ function agregarProductoAlCarrito(idProducto) {
     }
 
     actualizarCarrito();
-    mostrarCarrito();
+    mostrarCarrito(); // Abrir el carrito automáticamente
 }
 
 // Función para actualizar el contenido del carrito
@@ -23,8 +26,10 @@ function actualizarCarrito() {
 
     if (!carritoItems || !carritoTotal) return;
 
+    // Limpiar contenido actual
     carritoItems.innerHTML = "";
 
+    // Renderizar productos en el carrito
     productosEnCarrito.forEach(producto => {
         const li = document.createElement("li");
         li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
@@ -46,10 +51,14 @@ function actualizarCarrito() {
         carritoItems.appendChild(li);
     });
 
+    // Calcular y mostrar el total
     const total = productosEnCarrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
     carritoTotal.textContent = `Total: $${total.toLocaleString("es-AR")}`;
 
-    sincronizarCarrito();
+    // Guardar en localStorage
+    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
+
+    // Asignar eventos a los botones
     agregarEventosCarrito();
 }
 
@@ -59,6 +68,7 @@ function agregarEventosCarrito() {
     const botonesDecrementar = document.querySelectorAll(".btn-decrementar");
     const botonesEliminar = document.querySelectorAll(".btn-eliminar");
 
+    // Incrementar cantidad
     botonesIncrementar.forEach(boton => {
         boton.addEventListener("click", (e) => {
             const id = e.currentTarget.dataset.id;
@@ -70,6 +80,7 @@ function agregarEventosCarrito() {
         });
     });
 
+    // Decrementar cantidad
     botonesDecrementar.forEach(boton => {
         boton.addEventListener("click", (e) => {
             const id = e.currentTarget.dataset.id;
@@ -77,12 +88,14 @@ function agregarEventosCarrito() {
             if (producto && producto.cantidad > 1) {
                 producto.cantidad--;
             } else {
+                // Si la cantidad llega a 0, eliminamos el producto del carrito
                 productosEnCarrito = productosEnCarrito.filter(p => p.id !== id);
             }
             actualizarCarrito();
         });
     });
 
+    // Eliminar producto
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", (e) => {
             const id = e.currentTarget.dataset.id;
@@ -90,6 +103,15 @@ function agregarEventosCarrito() {
             actualizarCarrito();
         });
     });
+}
+
+// Función para abrir el offcanvas del carrito
+function mostrarCarrito() {
+    const offcanvasCarrito = document.querySelector("#offcanvasCarrito");
+    const bootstrapOffcanvas = new bootstrap.Offcanvas(offcanvasCarrito);
+
+    // Mostrar el carrito
+    bootstrapOffcanvas.show();
 }
 
 // Actualizar el carrito al cargar la página

@@ -42,27 +42,3 @@ function validarCorreo(email) {
 
 // Asignar el evento al formulario
 formNewsletter.addEventListener("submit", manejarSuscripcion);
-
-// Variable global para el carrito
-let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-// Función para abrir el offcanvas del carrito
-function mostrarCarrito() {
-    const offcanvasCarrito = document.querySelector("#offcanvasCarrito");
-    const bootstrapOffcanvas = new bootstrap.Offcanvas(offcanvasCarrito);
-
-    // Mostrar el carrito
-    bootstrapOffcanvas.show();
-}
-
-// Función para sincronizar el carrito con localStorage
-function sincronizarCarrito() {
-    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
-}
-
-// Al cargar la página, actualizamos la vista del carrito
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof actualizarCarrito === "function") {
-        actualizarCarrito(); // Llamamos a actualizarCarrito() si existe
-    }
-});
