@@ -301,7 +301,7 @@ contenedorProductos.parentElement.append(noResultsMessage);
 
 // Función para cargar los productos en el HTML
 function cargarProductos(productosFiltrados = productos) {
-    contenedorProductos.innerHTML = ""; // Limpia el contenedor
+    contenedorProductos.innerHTML = "";
     if (productosFiltrados.length === 0) {
         noResultsMessage.style.display = "block";
     } else {
@@ -337,9 +337,8 @@ function ordenarProductos(productosFiltrados) {
             return productosFiltrados.sort((a, b) => a.precio - b.precio);
         case "price-desc":
             return productosFiltrados.sort((a, b) => b.precio - a.precio);
-        case "relevance":
         default:
-            return productosFiltrados; // Relevancia o sin cambios
+            return productosFiltrados;
     }
 }
 
