@@ -39,7 +39,7 @@ Este proyecto no requiere la instalación de dependencias adicionales, solo un n
 
 ## **Licencia**
 
-Este proyecto está licenciado bajo la Licencia MIT. Para más información, consulta el archivo [Licencia](./LICENSE).
+Este proyecto está licenciado bajo la Licencia MIT. Para más información, consulta el archivo [Licencia](./license).
 
 ## **Contacto**
 
