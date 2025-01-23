@@ -32,6 +32,11 @@ function manejarSuscripcion(e) {
     }
 
     emailInput.value = ""; // Limpiar el campo de entrada
+
+    // Eliminar el mensaje después de 3 segundos
+    setTimeout(() => {
+        feedback.textContent = "";
+    }, 3000);
 }
 
 // Validar formato del correo
