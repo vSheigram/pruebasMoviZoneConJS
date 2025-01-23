@@ -40,10 +40,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../pages/contacto.html" aria-label="Ir a la página de Contacto">Contacto</a>
                         </li>
-        <!-- Iconos de búsqueda, carrito y usuario -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" aria-label="Buscar"><i class="bi bi-search"></i></a>
-                        </li>
+        <!-- Iconos de carrito y usuario -->
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito" aria-label="Ver carrito de compras"><i class="bi bi-cart-fill"></i></a>
                         </li>
@@ -70,31 +67,140 @@
             </div>
         </div>
         
+                <!-- Inicio Offcanvas Login/Registro -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasLogin" aria-labelledby="offcanvasLoginLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasLoginLabel">Acceso a tu cuenta</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <!-- Pestañas para cambiar entre Login y Registro -->
+                        <ul class="nav nav-tabs mb-3" id="login-register-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Iniciar Sesión</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Registrar</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="login-register-content">
+                            <!-- Formulario de Inicio de Sesión -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <form id="login-form" class="border p-3 rounded" style="background-color: #252525; color: #ffffff;">
+                                    <div class="mb-3">
+                                        <label for="login-username" class="form-label">Usuario</label>
+                                        <input type="text" id="login-username" class="form-control" placeholder="Ingresa tu usuario" autocomplete="username" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="login-password" class="form-label">Contraseña</label>
+                                        <input type="password" id="login-password" class="form-control" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                                    </div>
+                                </form>
+                                <p id="login-feedback" class="mt-3 text-center text-danger" style="display: none;">Usuario o contraseña incorrectos.</p>
+                            </div>
+                            <!-- Formulario de Registro -->
+                            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <form id="register-form" class="border p-3 rounded" style="background-color: #252525; color: #ffffff;">
+                                    <div class="mb-3">
+                                        <label for="register-username" class="form-label">Usuario</label>
+                                        <input type="text" id="register-username" class="form-control" placeholder="Elige un usuario" autocomplete="username" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="register-email" class="form-label">Correo Electrónico</label>
+                                        <input type="email" id="register-email" class="form-control" placeholder="Ingresa tu correo electrónico" autocomplete="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="register-password" class="form-label">Contraseña</label>
+                                        <input type="password" id="register-password" class="form-control" placeholder="Crea una contraseña" autocomplete="new-password" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="register-confirm-password" class="form-label">Confirmar Contraseña</label>
+                                        <input type="password" id="register-confirm-password" class="form-control" placeholder="Repite tu contraseña" autocomplete="new-password" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-success w-100">Registrar</button>
+                                    </div>
+                                </form>
+                                <p id="register-feedback" class="mt-3 text-center text-success" style="display: none;">Usuario registrado exitosamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- Fin Offcanvas Login/Registro -->
+        
         <!-- Fin Barra de Navegación -->
     </header>
 
     <main>
-        <section id="samsung-products" class="productos container-fluid mt-5">
+        <section id="samsung-products" class="productos container-fluid mt-5" style="background-color: #0D1326;">
             <br><br>
             <div class="container samsung">
-                <h1>Samsung</h1>
-                <div class="product-list row">
-                    <!-- Productos Grid -->
-                    <div class="col-lg-9">
-                        <div class="row">
-                            <div id="contenedor-productos" class="row">
-                            <!-- Traigo los productos con JS -->
+                <h1 style="font-family: 'Stick No Bills', sans-serif; color: #382E59;">Productos</h1>
+                <div class="row">
+                    <!-- Filtros -->
+                    <aside class="col-lg-3">
+                        <h3 class="mb-4" style="color: #80679e;">Filtros</h3>
+                        <form id="filter-form" class="border p-3 rounded" style="background-color: #252525;">
+                            <!-- Filtro por categoría -->
+                            <h5 class="mb-3" style="color: #3b5b94;">Categorías</h5>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="samsung" value="samsung">
+                                <label class="form-check-label" for="samsung" style="color: #a0b4d9;">Samsung</label>
                             </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="iphone" value="iphone">
+                                <label class="form-check-label" for="iphone" style="color: #a0b4d9;">iPhone</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="wearable" value="wearable">
+                                <label class="form-check-label" for="wearable" style="color: #a0b4d9;">Wearables</label>
+                            </div>
+    
+                            <!-- Filtro por rango de precios -->
+                            <h5 class="mt-4 mb-3" style="color: #3b5b94;">Precio</h5>
+                            <div class="mb-3">
+                                <label for="min-price" class="form-label" style="color: #a0b4d9;">Desde:</label>
+                                <select id="min-price" class="form-select">
+                                    <option value="0">Sin mínimo</option>
+                                    <option value="100000">$100,000</option>
+                                    <option value="500000">$500,000</option>
+                                    <option value="1000000">$1,000,000</option>
+                                    <option value="2000000">$2,000,000</option>
+                                    <option value="3000000">$3,000,000</option>
+                                    <option value="4000000">$4,000,000</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="max-price" class="form-label" style="color: #a0b4d9;">Hasta:</label>
+                                <select id="max-price" class="form-select">
+                                    <option value="Infinity">Sin máximo</option>
+                                    <option value="500000">$500,000</option>
+                                    <option value="1000000">$1,000,000</option>
+                                    <option value="2000000">$2,000,000</option>
+                                    <option value="3000000">$3,000,000</option>
+                                    <option value="4000000">$4,000,000</option>
+                                    <option value="5000000">$5,000,000</option>
+                                </select>
+                            </div>
+    
+                            <!-- Botón de resetear filtros -->
+                            <div class="text-center">
+                                <button type="button" id="reset-filters" class="btn btn-secondary mt-3 w-100">
+                                    Resetear Filtros
+                                </button>
+                            </div>
+                        </form>
+                    </aside>
+    
+                    <!-- Productos -->
+                    <div class="col-lg-9">
+                        <div id="contenedor-productos" class="row g-4">
+                            <!-- Los productos se cargarán aquí dinámicamente -->
                         </div>
                     </div>
-                    <!-- Publicidad Random -->
-                    <aside class="col-lg-3">
-                        <div class="ad-section text-center">
-                            <h3>Publicidad</h3>
-                            <a href="https://www.instagram.com/amamosjugar" target="_blank"><img src="../img/amamos-jugar.jpg" class="img-fluid" alt="Publicidad Random"></a>
-                            <p>Compra los mejores juegos de mesa en <a href="https://www.instagram.com/amamosjugar" target="_blank">Amamos Jugar</a>.</p>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </section>
